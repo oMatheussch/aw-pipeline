@@ -1,2 +1,2 @@
-# indicium-analytics-engineer-certification
+# Adventure Works Pipeline
 Projeto para certificação em Analytics Engineer by Indicium
