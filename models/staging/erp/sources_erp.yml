@@ -1,0 +1,14 @@
+sources:
+  - name: erp
+    description: Sistema ERP Postgrees SQL, com dados da empresa Adventure Works
+    schema: RAW_ADVENTURE_WORKS
+    database: fea24_11
+    tables:
+      - name: SalesOrderHeader
+      - name: CreditCard
+      - name: SalesOrderHeaderSalesReason
+      - name: SalesReason
+      - name: Customer
+      - name: Address
+      - name: StateProvince
+      - name: CountryRegion
