@@ -5,6 +5,7 @@ sources:
     database: fea24_11
     tables:
       - name: SalesOrderHeader
+      - name: SalesorderDetail
       - name: CreditCard
       - name: SalesOrderHeaderSalesReason
       - name: SalesReason
