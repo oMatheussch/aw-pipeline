@@ -37,9 +37,7 @@ WITH capa_pedido_venda as (
         )}} as sk_codigo_produto
         , {{dbt_utils.generate_surrogate_key(
             [ 'capa_pedido_venda.codigo_pedido_venda', 'itens_pedido_venda.codigo_produto' ]
-        )}} as sk_pedido_venda_produto
-
-        
+        )}} as sk_pedido_venda_produto      
 
     from itens_pedido_venda
     left join capa_pedido_venda
