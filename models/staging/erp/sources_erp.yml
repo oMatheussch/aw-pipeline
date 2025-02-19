@@ -13,3 +13,4 @@ sources:
       - name: Address
       - name: StateProvince
       - name: CountryRegion
+      - name: Product
