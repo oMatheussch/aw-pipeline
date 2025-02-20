@@ -7,7 +7,7 @@ WITH
     , data_cleaning_and_transforming AS (
         select
             cast(SALESREASONID as int) codigo_motivo_venda
-            , cast(NAME as string) as titulo_motivo
+            , cast(NAME as string) as descricao_motivo
             , cast(REASONTYPE as string) as tipo_motivo
             , cast(MODIFIEDDATE as timestamp) as data_modificacao
         from raw_data

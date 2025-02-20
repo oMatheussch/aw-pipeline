@@ -21,6 +21,12 @@ WITH
             , {{dbt_utils.generate_surrogate_key(
                 [ 'codigo_cliente' ]
             )}} as sk_codigo_cliente
+            , {{dbt_utils.generate_surrogate_key(
+                [ 'codigo_loja' ]
+            )}} as sk_codigo_loja
+            , {{dbt_utils.generate_surrogate_key(
+                [ 'codigo_territorio' ]
+            )}} as sk_codigo_territorio
         from data_cleaning_and_transforming
     )
 
