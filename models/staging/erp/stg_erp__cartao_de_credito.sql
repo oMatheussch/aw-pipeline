@@ -4,7 +4,7 @@ WITH
         from {{ source('erp', 'CreditCard')}}
     )
     
-    , enrichment_data AS (
+    , data_cleaning_and_transforming AS (
         select
             cast(CREDITCARDID as int) as codigo_cartao_credito
             , cast(CARDTYPE as string) as bandeira_cartao
@@ -15,5 +15,13 @@ WITH
         from raw_data
     )
 
+    , enrichment_data AS (
+        select 
+            *
+            , {{dbt_utils.generate_surrogate_key(
+                [ 'codigo_cartao_credito' ]
+            )}} as sk_codigo_cartao_credito
+        from data_cleaning_and_transforming
+    )
 select *
 from enrichment_data
