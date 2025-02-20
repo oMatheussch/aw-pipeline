@@ -4,7 +4,7 @@ WITH
         from {{ source('erp', 'SalesOrderHeader')}}
     )
 
-    , enrichment_data AS (
+    , data_cleaning_and_transforming AS (
         select
             cast(SALESORDERID as int) as codigo_pedido_venda
             --, cast(REVISIONNUMBER as int) as codigo_revisao_pedido_venda
@@ -35,6 +35,21 @@ WITH
             --, cast(ROWGUID as string)
             , cast(MODIFIEDDATE as timestamp) data_modificacao
         from raw_data
+    )
+
+    , enrichment_data AS (
+        select 
+            *
+            , {{dbt_utils.generate_surrogate_key(
+                [ 'codigo_pedido_venda' ]
+            )}} as sk_codigo_pedido_venda
+            , {{dbt_utils.generate_surrogate_key(
+                [ 'codigo_cliente' ]
+            )}} as sk_codigo_cliente
+            , {{dbt_utils.generate_surrogate_key(
+                [ 'codigo_vendedor' ]
+            )}} as sk_codigo_vendedor
+        from data_cleaning_and_transforming
     )
 
 select *

@@ -4,7 +4,7 @@ WITH
         from {{ source('erp', 'Product')}}
     )
     
-    , enrichment_data AS (
+    , data_cleaning_and_transforming AS (
         select
             cast(PRODUCTID as int) as codigo_produto
 	        , cast(PRODUCTMODELID as int) codigo_modelo_produto
@@ -34,6 +34,21 @@ WITH
 	        --, cast(FINISHEDGOODSFLAG as boolean) as indefinido2
             --, cast(ROWGUID as string)
         from raw_data
+    )
+
+    , enrichment_data AS (
+        select 
+            *
+            , {{dbt_utils.generate_surrogate_key(
+                [ 'codigo_produto' ]
+            )}} as sk_codigo_produto
+            , {{dbt_utils.generate_surrogate_key(
+                [ 'codigo_modelo_produto' ]
+            )}} as sk_codigo_modelo_produto
+            , {{dbt_utils.generate_surrogate_key(
+                [ 'codigo_subcategoria' ]
+            )}} as sk_codigo_subcategoria
+        from data_cleaning_and_transforming
     )
 
 select *

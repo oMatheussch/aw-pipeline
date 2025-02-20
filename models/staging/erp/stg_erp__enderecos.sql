@@ -4,7 +4,7 @@ WITH
         from {{ source('erp', 'Address')}}
     )
     
-    , enrichment_data AS (
+    , data_cleaning_and_transforming AS (
         select
             cast(ADDRESSID as int) as codigo_endereco
             , cast(ADDRESSLINE1 as string) as descricao_endereco_linha_1
@@ -16,6 +16,15 @@ WITH
             , cast(MODIFIEDDATE as timestamp) as data_modificacao 
             --, cast(ROWGUID as string)
         from raw_data
+    )
+
+    , enrichment_data AS (
+        select 
+            *
+            , {{dbt_utils.generate_surrogate_key(
+                [ 'codigo_endereco' ]
+            )}} as sk_codigo_endereco
+        from data_cleaning_and_transforming
     )
 
 select *
