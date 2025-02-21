@@ -1,0 +1,8 @@
+models:
+  - name: int_vendas__localizacao.sql
+    description: Modelo que enriquece dados de localizacao.
+    columns:
+      - name: sk_codigo_endereco
+        description: Código do endereco, que deve ser sempre não nulo!
+        data_tests:
+          - not_null

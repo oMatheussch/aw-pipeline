@@ -8,7 +8,7 @@ WITH
         select
             cast(STATEPROVINCEID as int) as codigo_provincia_estado
             , cast(STATEPROVINCECODE as string) as sigla_provincia_estado
-            , cast(COUNTRYREGIONCODE as string) as codigo_regiao
+            , cast(COUNTRYREGIONCODE as string) as codigo_pais
             , case
                 when cast(ISONLYSTATEPROVINCEFLAG as string) = 'true' then 'Sim'
                 else 'Não'
@@ -27,8 +27,8 @@ WITH
                 [ 'codigo_provincia_estado' ]
             )}} as sk_codigo_provincia_estado
             , {{dbt_utils.generate_surrogate_key(
-                [ 'codigo_regiao' ]
-            )}} as sk_codigo_regiao
+                [ 'codigo_pais' ]
+            )}} as sk_codigo_pais
         from data_cleaning_and_transforming
     )
 

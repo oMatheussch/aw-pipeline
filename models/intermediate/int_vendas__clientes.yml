@@ -1,0 +1,9 @@
+models:
+  - name: int_vendas__clientes.sql
+    description: Modelo que enriquece dados de clientes.
+    columns:
+      - name: sk_codigo_cliente
+        description: Código do cliente, que deve ser sempre único e não nulo!
+        data_tests:
+          - unique
+          - not_null

@@ -24,6 +24,9 @@ WITH
             , {{dbt_utils.generate_surrogate_key(
                 [ 'codigo_endereco' ]
             )}} as sk_codigo_endereco
+            , {{dbt_utils.generate_surrogate_key(
+                [ 'codigo_provincia_estado' ]
+            )}} as sk_codigo_provincia_estado
         from data_cleaning_and_transforming
     )
 
