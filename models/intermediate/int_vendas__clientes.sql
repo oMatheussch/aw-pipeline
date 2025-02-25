@@ -23,9 +23,9 @@ WITH clientes as (
         , pessoas.primeiro_nome
         , pessoas.nome_do_meio
         , pessoas.ultimo_nome
-    from pessoas
-    left join clientes
-        on pessoas.sk_codigo_pessoa = clientes.sk_codigo_pessoa
+    from clientes
+    left join pessoas
+        on clientes.sk_codigo_pessoa = pessoas.sk_codigo_pessoa
 )
 
 select *
