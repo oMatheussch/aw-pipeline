@@ -1,0 +1,9 @@
+models:
+  - name: int_vendas__motivo_venda.sql
+    description: Modelo que enriquece dados de cartao de motivo de venda.
+    columns:
+      - name: sk_codigo_motivo_venda
+        description: Código do motivo de venda, que deve ser sempre único e não nulo!
+        data_tests:
+          - unique
+          - not_null

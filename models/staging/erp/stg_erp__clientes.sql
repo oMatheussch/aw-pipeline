@@ -10,7 +10,7 @@ WITH
             , cast(STOREID as int) as codigo_loja
             , cast(TERRITORYID as int) as codigo_territorio
             , cast(MODIFIEDDATE as timestamp) as data_modificacao
-            --, cast(PERSONID as int) as codigo_pessoa
+            , cast(PERSONID as int) as codigo_pessoa
             --, cast(ROWGUID as int)
         from raw_data
     )
@@ -21,6 +21,15 @@ WITH
             , {{dbt_utils.generate_surrogate_key(
                 [ 'codigo_cliente' ]
             )}} as sk_codigo_cliente
+            , {{dbt_utils.generate_surrogate_key(
+                [ 'codigo_loja' ]
+            )}} as sk_codigo_loja
+            , {{dbt_utils.generate_surrogate_key(
+                [ 'codigo_territorio' ]
+            )}} as sk_codigo_territorio
+            , {{dbt_utils.generate_surrogate_key(
+                [ 'codigo_pessoa' ]
+            )}} as sk_codigo_pessoa
         from data_cleaning_and_transforming
     )
 

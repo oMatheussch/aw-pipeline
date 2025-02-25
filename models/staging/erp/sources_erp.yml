@@ -14,3 +14,4 @@ sources:
       - name: StateProvince
       - name: CountryRegion
       - name: Product
+      - name: Person
