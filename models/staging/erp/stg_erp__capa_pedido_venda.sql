@@ -47,8 +47,14 @@ WITH
                 [ 'codigo_cliente' ]
             )}} as sk_codigo_cliente
             , {{dbt_utils.generate_surrogate_key(
+                [ 'codigo_endereco_de_entrega' ]
+            )}} as sk_codigo_endereco_de_entrega
+            , {{dbt_utils.generate_surrogate_key(
                 [ 'codigo_vendedor' ]
             )}} as sk_codigo_vendedor
+            , {{dbt_utils.generate_surrogate_key(
+                [ 'codigo_cartao_de_credito' ]
+            )}} as sk_codigo_cartao_de_credito
         from data_cleaning_and_transforming
     )
 

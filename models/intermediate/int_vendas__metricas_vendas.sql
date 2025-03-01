@@ -8,6 +8,13 @@ WITH capa_pedido_venda as (
     from {{ ref("stg_erp__itens_pedido_venda")}}
 )
 
+, codigo_motivo_venda as (
+    select 
+        sk_codigo_pedido_venda
+        , sk_codigo_motivo_venda
+    from {{ ref("stg_erp__cabecalho_motivo_pedido_vendas")}}
+)
+
 , metricas_pedido as (
     select 
         capa_pedido_venda.codigo_pedido_venda
@@ -28,9 +35,14 @@ WITH capa_pedido_venda as (
         , capa_pedido_venda.sk_codigo_pedido_venda
         , capa_pedido_venda.sk_codigo_cliente
         , capa_pedido_venda.sk_codigo_vendedor
+        , capa_pedido_venda.sk_codigo_cartao_de_credito
+        , capa_pedido_venda.codigo_endereco_de_entrega
+        , codigo_motivo_venda.sk_codigo_motivo_venda
     from itens_pedido_venda
     left join capa_pedido_venda
-        on capa_pedido_venda.codigo_pedido_venda = itens_pedido_venda.codigo_pedido
+        on capa_pedido_venda.sk_codigo_pedido_venda = itens_pedido_venda.sk_codigo_pedido_venda
+    left join codigo_motivo_venda
+        on capa_pedido_venda.sk_codigo_pedido_venda = codigo_motivo_venda.sk_codigo_pedido_venda
 )
 
 select * 

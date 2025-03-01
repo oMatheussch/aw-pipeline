@@ -24,6 +24,9 @@ WITH
         select 
             *
             , {{dbt_utils.generate_surrogate_key(
+                [ 'codigo_pedido' ]
+            )}} as sk_codigo_pedido_venda
+            , {{dbt_utils.generate_surrogate_key(
                 [ 'codigo_produto' ]
             )}} as sk_codigo_produto
             , {{dbt_utils.generate_surrogate_key(
