@@ -31,7 +31,7 @@ WITH capa_pedido_venda as (
         ) as valor_total_unitario
 
         , itens_pedido_venda.sk_codigo_produto
-        , itens_pedido_venda.sk_pedido_venda_produto      
+        , itens_pedido_venda.sk_pedido_venda_item      
         , capa_pedido_venda.sk_codigo_pedido_venda
         , capa_pedido_venda.sk_codigo_cliente
         , capa_pedido_venda.sk_codigo_vendedor
@@ -42,8 +42,8 @@ WITH capa_pedido_venda as (
     left join capa_pedido_venda
         on capa_pedido_venda.sk_codigo_pedido_venda = itens_pedido_venda.sk_codigo_pedido_venda
     left join codigo_motivo_venda
-        on capa_pedido_venda.sk_codigo_pedido_venda = codigo_motivo_venda.sk_codigo_pedido_venda
+        on itens_pedido_venda.sk_codigo_pedido_venda = codigo_motivo_venda.sk_codigo_pedido_venda
 )
 
-select * 
+select *
 from  metricas_pedido
