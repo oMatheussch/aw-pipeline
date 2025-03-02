@@ -24,11 +24,14 @@ WITH
         select 
             *
             , {{dbt_utils.generate_surrogate_key(
+                [ 'codigo_pedido' ]
+            )}} as sk_codigo_pedido_venda
+            , {{dbt_utils.generate_surrogate_key(
                 [ 'codigo_produto' ]
             )}} as sk_codigo_produto
             , {{dbt_utils.generate_surrogate_key(
-                [ 'codigo_pedido', 'codigo_produto' ]
-            )}} as sk_pedido_venda_produto
+                [ 'codigo_pedido', 'codigo_item_pedido' ]
+            )}} as sk_pedido_venda_item
         from data_cleaning_and_transforming
     )
 
