@@ -27,9 +27,9 @@ WITH capa_pedido_venda as (
         , itens_pedido_venda.quantidade_comprada
         , itens_pedido_venda.preco_unitario
         , itens_pedido_venda.desconto_unitario
-        , ((itens_pedido_venda.preco_unitario - itens_pedido_venda.desconto_unitario) 
+        , ((itens_pedido_venda.preco_unitario - (1 - itens_pedido_venda.desconto_unitario)) 
             * itens_pedido_venda.quantidade_comprada 
-        ) as valor_total_unitario
+        ) as valor_total_liquido_produto
 
         , itens_pedido_venda.sk_codigo_produto
         , itens_pedido_venda.sk_pedido_venda_item      
