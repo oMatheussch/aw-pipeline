@@ -21,6 +21,7 @@ WITH capa_pedido_venda as (
         , capa_pedido_venda.data_pedido
         , capa_pedido_venda.sub_total
         , capa_pedido_venda.total_devido
+        , capa_pedido_venda.status
 
         , itens_pedido_venda.codigo_item_pedido
         , itens_pedido_venda.quantidade_comprada
@@ -36,7 +37,7 @@ WITH capa_pedido_venda as (
         , capa_pedido_venda.sk_codigo_cliente
         , capa_pedido_venda.sk_codigo_vendedor
         , capa_pedido_venda.sk_codigo_cartao_de_credito
-        , capa_pedido_venda.codigo_endereco_de_entrega
+        , capa_pedido_venda.sk_codigo_endereco_de_entrega
         , codigo_motivo_venda.sk_codigo_motivo_venda
     from itens_pedido_venda
     left join capa_pedido_venda
@@ -47,3 +48,4 @@ WITH capa_pedido_venda as (
 
 select *
 from  metricas_pedido
+order by desconto_unitario desc

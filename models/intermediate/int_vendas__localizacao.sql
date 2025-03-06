@@ -1,5 +1,5 @@
 WITH 
-    pais as (
+pais as (
     select 
        sk_codigo_pais
        , nome_pais
@@ -31,6 +31,8 @@ WITH
         , enderecos.descricao_endereco_linha_1
         , enderecos.descricao_endereco_linha_2
         , enderecos.nome_cidade
+        , provincia.sigla_provincia_estado
+        , pais.nome_pais
     from enderecos
     left join provincia
         on enderecos.sk_codigo_provincia_estado = provincia.sk_codigo_provincia_estado
