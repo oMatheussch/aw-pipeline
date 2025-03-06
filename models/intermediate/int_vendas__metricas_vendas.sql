@@ -21,7 +21,7 @@ WITH capa_pedido_venda as (
         , capa_pedido_venda.data_pedido
         , capa_pedido_venda.sub_total
         , capa_pedido_venda.total_devido
-        , capa_pedido_venda.status
+        --, capa_pedido_venda.status
 
         , itens_pedido_venda.codigo_item_pedido
         , itens_pedido_venda.quantidade_comprada
