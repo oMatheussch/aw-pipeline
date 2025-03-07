@@ -12,8 +12,8 @@ WITH
             , cast(ORDERQTY as int) as quantidade_comprada
             , cast(PRODUCTID as int) as codigo_produto
             , cast(SPECIALOFFERID as int) as codigo_oferta_especial
-            , cast(UNITPRICE as decimal) as preco_unitario
-            , cast(UNITPRICEDISCOUNT as decimal) as desconto_unitario
+            , cast(UNITPRICE as float) as preco_unitario
+            , cast(UNITPRICEDISCOUNT as float) as desconto_unitario
             , cast(MODIFIEDDATE as timestamp) as data_modificacao 
 
             --, cast(ROWGUID as string)

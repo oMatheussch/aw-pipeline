@@ -11,7 +11,15 @@ WITH
             , cast(ORDERDATE as date) as data_pedido
             , cast(DUEDATE as date) as data_prevista_envio
             , cast(SHIPDATE as date) as data_entrega
-            , cast(STATUS as int) as codigo_status_pedido /*ADICIONAR DIRETAMENTE OS ASTATUS NESSA LINHA*/ 
+            , case 
+                when cast(STATUS as int) = 1 then 'Em andamento'
+                when cast(STATUS as int) = 2 then 'Aprovado'
+                when cast(STATUS as int) = 3 then 'Em espera'
+                when cast(STATUS as int) = 4 then 'Rejeitado'
+                when cast(STATUS as int) = 5 then 'Enviado'
+                when cast(STATUS as int) = 6 then 'Cancelado'
+                else 'Indefinido'
+            end as status_pedido
             , case 
                 when cast(ONLINEORDERFLAG as string) = 'true' then 'Sim'  
                 else 'Não'

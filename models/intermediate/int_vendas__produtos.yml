@@ -7,3 +7,5 @@ models:
         data_tests:
           - unique
           - not_null
+      - name: nome_produto
+        description: Descrição do produto.

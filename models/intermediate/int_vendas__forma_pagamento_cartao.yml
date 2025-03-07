@@ -7,3 +7,5 @@ models:
         data_tests:
           - unique
           - not_null
+      - name: bandeira_cartao
+        description: Bandeira do cartão utilizado.
