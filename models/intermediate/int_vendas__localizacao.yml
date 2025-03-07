@@ -6,3 +6,13 @@ models:
         description: Código do endereco, que deve ser sempre não nulo!
         data_tests:
           - not_null
+      - name: descricao_endereco_linha_1
+        description: Campo 01 para descrição do endereço.
+      - name: descricao_endereco_linha_2
+        description: Campo complementar para descrição do endereço.
+      - name: nome_cidade
+        description: Nome da cidade.
+      - name: sigla_provincia_estado
+        description: Sigla do Estado.
+      - name: nome_pais
+        description: Nome do País.

@@ -6,3 +6,45 @@ models:
         description: Código do pedido + produto, que deve ser sempre único e não nulo!
         data_tests:
           - not_null
+      - name: sk_codigo_produto
+        description: SK do Código do produto para relacionar com dimensão de produto.
+      - name: sk_codigo_pedido_venda
+        description: SK do Código do Pedido de Venda, utilizado para relacionamento com a capa do pedido.
+      - name: sk_codigo_cliente
+        description: SK do Código Cliente, utilizado para relacionamento com a dimensão cliente.
+      - name: sk_codigo_pedido_venda
+        description: SK do Código do Pedido de Venda, utilizado para relacionamento com a capa do pedido.
+      - name: sk_codigo_cartao_de_credito
+        description: SK Código do Cartão utilizado, utilizado para relacionar com dimenção da forma de pagamento.
+      - name: sk_codigo_endereco_de_entrega
+        description: SK do endereço de entrega, utilizado para relacionamento com a dimensão de endereço.
+      - name: sk_codigo_motivo_venda
+        description: SK do motivo de venda, utilizado para relacionamento com a dimensão de motivo de venda.
+
+      - name: codigo_pedido_venda
+        description: Código do pedido de venda.
+      - name: data_pedido
+        description: Data de emissão do pedido de venda.
+      - name: sub_total
+        description: Valor unitário dos produtos, multiplicado pela quantidade unitária comprada sem considerar impostos e frete.
+      - name: total_devido
+        description: Valor real final a ser pago pelo cliente no pedido.
+      - name: status_pedido
+        description: Representa o status em que o pedido se encontra.
+      - name: codigo_item_pedido
+        description: Código do item no pedido de venda.
+      - name: quantidade_comprada
+        description: Quantidade comprada de cada item.
+      - name: preco_unitario
+        description: Preço unitário de cada item.
+      - name: desconto_unitario
+        description: Desconto unitário aplicado para cada item do pedido.
+      - name: valor_total_liquido_produto
+        description: Valor total a ser pago pelo produto, subtraindo o valor de desconto.
+      - name: valor_total_negociado
+        description: Multiplicação da quantidade comprada pelo preço unitário do produto, gerando o valor total negociado.
+      
+      - name: sk_pedido_venda_item
+        description: Código do pedido + produto, que deve ser sempre único e não nulo!
+      - name: sk_pedido_venda_item
+        description: Código do pedido + produto, que deve ser sempre único e não nulo!

@@ -21,21 +21,23 @@ WITH capa_pedido_venda as (
         , capa_pedido_venda.data_pedido
         , capa_pedido_venda.sub_total
         , capa_pedido_venda.total_devido
-        --, capa_pedido_venda.status
+        , capa_pedido_venda.status_pedido
 
         , itens_pedido_venda.codigo_item_pedido
         , itens_pedido_venda.quantidade_comprada
         , itens_pedido_venda.preco_unitario
         , itens_pedido_venda.desconto_unitario
-        , ((itens_pedido_venda.preco_unitario - (1 - itens_pedido_venda.desconto_unitario)) 
+        , ((itens_pedido_venda.preco_unitario - itens_pedido_venda.desconto_unitario) 
             * itens_pedido_venda.quantidade_comprada 
         ) as valor_total_liquido_produto
+        , (itens_pedido_venda.preco_unitario * itens_pedido_venda.quantidade_comprada 
+        ) as valor_total_negociado
 
         , itens_pedido_venda.sk_codigo_produto
         , itens_pedido_venda.sk_pedido_venda_item      
         , capa_pedido_venda.sk_codigo_pedido_venda
         , capa_pedido_venda.sk_codigo_cliente
-        , capa_pedido_venda.sk_codigo_vendedor
+        --, capa_pedido_venda.sk_codigo_vendedor
         , capa_pedido_venda.sk_codigo_cartao_de_credito
         , capa_pedido_venda.sk_codigo_endereco_de_entrega
         , codigo_motivo_venda.sk_codigo_motivo_venda

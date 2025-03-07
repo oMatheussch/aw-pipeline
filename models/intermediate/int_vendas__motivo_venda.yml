@@ -7,3 +7,5 @@ models:
         data_tests:
           - unique
           - not_null
+      - name: descricao_motivo
+        description: Descrição para o motivo da venda.

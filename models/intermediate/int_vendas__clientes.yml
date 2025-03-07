@@ -7,3 +7,12 @@ models:
         data_tests:
           - unique
           - not_null
+      - name: primeiro_nome
+        description: Primeiro nome do cliente!
+      - name: nome_do_meio
+        description: Nome do meio do cliente!
+      - name: ultimo_nome
+        description: Último nome do cliente!
+      - name: primeiro_ultimo_nome
+        description: Concatenação do primeiro e último nome do cliente!
+        
