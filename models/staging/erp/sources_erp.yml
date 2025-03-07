@@ -1,17 +1,87 @@
 sources:
   - name: erp
-    description: Sistema ERP Postgrees SQL, com dados da empresa Adventure Works
+    description: Sistema ERP Postgres SQL, com dados da empresa Adventure Works
     schema: RAW_ADVENTURE_WORKS
     database: fea24_11
     tables:
       - name: SalesOrderHeader
+        columns:
+          - name: SalesOrderID
+            tests:
+              - unique
+              - not_null
+          - name: OrderDate
+            tests:
+              - not_null
+
       - name: SalesorderDetail
+        columns:
+          - name: SalesOrderDetailID
+            tests:
+              - unique
+              - not_null
+          - name: SalesOrderID
+            tests:
+              - not_null
+
       - name: CreditCard
+        columns:
+          - name: CreditCardID
+            tests:
+              - unique
+              - not_null
+
       - name: SalesOrderHeaderSalesReason
+        columns:
+          - name: SalesOrderID
+            tests:
+              - not_null
+
       - name: SalesReason
+        columns:
+          - name: SalesReasonID
+            tests:
+              - unique
+              - not_null
+
       - name: Customer
+        columns:
+          - name: CustomerID
+            tests:
+              - unique
+              - not_null
+
       - name: Address
+        columns:
+          - name: AddressID
+            tests:
+              - unique
+              - not_null
+
       - name: StateProvince
+        columns:
+          - name: StateProvinceID
+            tests:
+              - unique
+              - not_null
+
       - name: CountryRegion
+        columns:
+          - name: CountryRegionCode
+            tests:
+              - unique
+              - not_null
+
       - name: Product
+        columns:
+          - name: ProductID
+            tests:
+              - unique
+              - not_null
+
       - name: Person
+        columns:
+          - name: BusinessEntityID
+            tests:
+              - unique
+              - not_null
